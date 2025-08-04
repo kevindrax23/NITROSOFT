@@ -1,14 +1,36 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FirebaseService } from '../../services/firebase.service';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 @Component({
-  selector: 'app-login.component.ts',
+  selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.component.ts.html',
-  styleUrl: './login.component.ts.css'
+  styleUrls: ['./login.component.ts.css']
 })
-export class LoginComponentTs {
+export class LoginComponent {
+  email = '';
+  password = '';
+  remember = false;
+  error = '';
 
+  constructor(public router: Router, private firebase: FirebaseService) {}
+
+  async login() {
+    try {
+      const auth = this.firebase.getAuthInstance();
+      const result = await signInWithEmailAndPassword(auth, this.email, this.password);
+      if (this.remember) {
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('password', this.password);
+      }
+      this.router.navigate(['/dashboard']);
+    } catch (err: any) {
+      this.error = 'Credenciales incorrectas o no válidas.';
+    }
+  }
 }

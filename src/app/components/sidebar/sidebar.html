@@ -1,0 +1,28 @@
+<div class="sidebar bg-dark text-white shadow" [class.closed]="!isOpen">
+  <div class="top-section d-flex justify-content-between align-items-center p-3">
+    <img src="https://i.pravatar.cc/60" alt="Avatar" class="avatar rounded-circle" />
+    <button class="btn btn-sm btn-outline-light" (click)="toggleSidebar()">✕</button>
+  </div>
+
+  <div class="user-info text-center">
+    <input [(ngModel)]="userName" class="form-control text-center my-2" />
+    <div class="status-indicator mx-auto my-2"
+         [class.online]="isOnline"
+         [class.offline]="!isOnline"
+         (click)="toggleStatus()">
+    </div>
+  </div>
+
+  <ul class="nav flex-column text-start px-3">
+    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/dashboard">Dashboard</a></li>
+    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/ventas">Ventas</a></li>
+    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/inventario">Inventario</a></li>
+    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/clientes">Clientes</a></li>
+    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/reportes">Reportes</a></li>
+  </ul>
+
+  <div class="logout text-center mt-auto p-3">
+    <button class="btn btn-outline-danger w-100" (click)="logout()">Cerrar sesión</button>
+  </div>
+</div>
+
