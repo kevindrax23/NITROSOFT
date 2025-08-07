@@ -12,7 +12,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class SidebarComponent {
   isOpen = true;
-  userName = 'Usuario';
+  userName = 'Kevindrax23';
   isOnline = true;
 
   navItems = [
