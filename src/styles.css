@@ -1,1 +1,40 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+/**** Estilos fondo de la pagina ****/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #000000, #111111, #1a1a1a, #0a0a0a);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  color: white;
+  overflow: hidden;
+}
+
+/* Para que el fondo cubra todo incluso si Angular usa rutas dinámicas */
+html, body, app-root {
+  height: 100%;
+}
+
+/* Animación suave del fondo */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* fuente de la app */
+
+* {
+  font-family: 'Montserrat', sans-serif !important;
+}

@@ -1,65 +1,130 @@
-.login-container {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 2rem;
-  border-radius: 16px;
-  background-color: #1e1e1e;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+/* Fondo de toda la pantalla */
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #121212, #1e1e1e);
 }
 
-form {
+/* Contenedor del formulario */
+.login-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 400px;
+  color: #ffffff;
 }
 
-input[type="email"],
-input[type="password"] {
-  padding: 0.75rem;
-  margin: 0.5rem 0;
-  border: none;
-  border-radius: 8px;
-  background-color: #2b2b2b;
-  color: #fff;
+/* Título */
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
 }
 
-button {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #4a4a4a;
+/* Estilo del campo flotante */
+.floating-label {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.floating-label input {
+  background-color: transparent;
+  border: 2px solid #555;
+  border-radius: 6px;
+  padding: 1rem 0.75rem 0.5rem;
+  width: 100%;
   color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.floating-label input:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.floating-label label {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.65rem;
+  font-size: 0.75rem;
+  background-color: #1c1c1c;
+  padding: 0 0.3rem;
+  color: #4caf50;
+}
+
+/* Recordar checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+.checkbox input {
+  margin-right: 0.5rem;
+}
+
+/* Botón */
+button {
+  width: 100%;
+  background: #4caf50;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
   font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #333;
+  background: #43a047;
+  transform: scale(1.02);
 }
 
-.remember {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+/* Texto de error */
+.error {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.forgot {
+.logo{
+width: 300px;
+}
+
+/* Link de recuperación */
+.recovery-link {
+  text-align: center;
   margin-top: 1rem;
-  text-align: right;
-  font-size: 0.9rem;
-  cursor: pointer;
-  color: #ccc;
 }
-
-.forgot:hover {
-  color: #fff;
+.recovery-link a {
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 12px;
+}
+.recovery-link a:hover {
   text-decoration: underline;
 }
 
-.error {
-  color: red;
-  margin-top: 1rem;
+.renember{
+  font-size: 12px;
 }

@@ -1,28 +1,35 @@
-<div class="sidebar bg-dark text-white shadow" [class.closed]="!isOpen">
-  <div class="top-section d-flex justify-content-between align-items-center p-3">
-    <img src="https://i.pravatar.cc/60" alt="Avatar" class="avatar rounded-circle" />
-    <button class="btn btn-sm btn-outline-light" (click)="toggleSidebar()">✕</button>
+<div class="sidebar shadow" [class.closed]="!isOpen">
+  <!-- Línea vertical flotante para abrir/cerrar -->
+  <div class="toggle-handle" (click)="toggleSidebar()">
+    <div class="handle-line"></div>
   </div>
 
-  <div class="user-info text-center">
-    <input [(ngModel)]="userName" class="form-control text-center my-2" />
-    <div class="status-indicator mx-auto my-2"
+  <!-- Info de usuario -->
+  <div class="user-info text-center my-3 d-flex align-items-center justify-content-center gap-2">
+    <i class="bi bi-person-circle fs-3 text-white"></i>
+    <span *ngIf="isOpen" class="user-name text-white">{{ userName }}</span>
+    <div class="status-indicator"
          [class.online]="isOnline"
          [class.offline]="!isOnline"
          (click)="toggleStatus()">
     </div>
   </div>
 
-  <ul class="nav flex-column text-start px-3">
-    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/dashboard">Dashboard</a></li>
-    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/ventas">Ventas</a></li>
-    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/inventario">Inventario</a></li>
-    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/clientes">Clientes</a></li>
-    <li class="nav-item my-2"><a class="nav-link text-white" routerLink="/reportes">Reportes</a></li>
+  <!-- Menú de navegación -->
+  <ul class="nav flex-column px-2">
+    <li class="nav-item my-2" *ngFor="let item of navItems">
+      <a class="nav-link text-white d-flex align-items-center gap-2" [routerLink]="item.route">
+        <i class="{{ item.icon }}"></i>
+        <span *ngIf="isOpen">{{ item.label }}</span>
+      </a>
+    </li>
   </ul>
 
+  <!-- Logout -->
   <div class="logout text-center mt-auto p-3">
-    <button class="btn btn-outline-danger w-100" (click)="logout()">Cerrar sesión</button>
+    <button class="btn btn-outline-danger w-100" (click)="logout()">
+      <i class="bi bi-box-arrow-left"></i>
+      <span *ngIf="isOpen">Cerrar sesión</span>
+    </button>
   </div>
 </div>
-

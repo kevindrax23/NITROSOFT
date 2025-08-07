@@ -15,6 +15,14 @@ export class SidebarComponent {
   userName = 'Usuario';
   isOnline = true;
 
+  navItems = [
+    { label: 'Dashboard', route: '/dashboard', icon: 'bi bi-speedometer2' },
+    { label: 'Ventas', route: '/ventas', icon: 'bi bi-currency-dollar' },
+    { label: 'Inventario', route: '/inventario', icon: 'bi bi-box-seam' },
+    { label: 'Clientes', route: '/clientes', icon: 'bi bi-people-fill' },
+    { label: 'Reportes', route: '/reportes', icon: 'bi bi-bar-chart-line-fill' }
+  ];
+
   constructor(private router: Router) {}
 
   toggleSidebar() {

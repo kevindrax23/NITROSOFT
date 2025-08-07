@@ -6,25 +6,57 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  background-color: #1c1c1c !important;
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease, transform 0.3s ease;
   z-index: 999;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .sidebar.closed {
-  transform: translateX(-100%);
+  width: 80px;
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
+.toggle-handle {
+  position: absolute;
+  right: -10px;
+  top: 20px;
+  background-color: #1c1c1c;
+  width: 20px;
+  height: 40px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.handle-line {
+  width: 4px;
+  height: 25px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.user-info .user-name {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .status-indicator {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  cursor: pointer;
   border: 2px solid #fff;
+  cursor: pointer;
 }
 
 .status-indicator.online {
@@ -33,4 +65,33 @@
 
 .status-indicator.offline {
   background-color: #dc3545;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.btn-outline-danger {
+  border-color: #28a745 !important;
+  border-radius: 10px !important;
+  color: #28a745;
+  padding: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #28a745 !important;
+  color: #fff !important;
+  border-color: #28a745 !important;
 }
