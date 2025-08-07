@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth ,onAuthStateChanged, signOut, User } from 'firebase/auth';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,4 +28,30 @@ export class FirebaseService {
   getAuthInstance() {
     return auth;
   }
+// Devuelve una promesa que resuelve con el usuario actual (o null)
+  currentUser(): Promise<User | null> {
+    return new Promise((resolve) => {
+      const unsub = onAuthStateChanged(auth, (user) => {
+        resolve(user);
+        unsub();
+      });
+    });
+  }
+
+  // Método auxiliar para saber si hay sesión activa
+  async isAuthenticated(): Promise<boolean> {
+    const user = await this.currentUser();
+    return user != null;
+  }
+
+  // Cerrar sesión
+  async logout(): Promise<void> {
+    await signOut(auth);
+  }
 }
+
+
+
+
+
+
