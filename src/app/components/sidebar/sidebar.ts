@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { FirebaseService } from '../../services/firebase.service'; // Ajusta la ruta según tu estructura
 
 @Component({
   standalone: true,
@@ -23,7 +24,10 @@ export class SidebarComponent {
     { label: 'Estadisticas', route: '/dashboard/statics', icon: 'bi bi-bar-chart-line-fill' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private firebaseService: FirebaseService,
+  ) {}
 
   toggleSidebar() {
     this.isOpen = !this.isOpen;
@@ -33,7 +37,8 @@ export class SidebarComponent {
     this.isOnline = !this.isOnline;
   }
 
-  logout() {
+  async logout() {
+    await this.firebaseService.logout();
     this.router.navigate(['/login']);
   }
 }
