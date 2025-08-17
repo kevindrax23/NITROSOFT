@@ -1,3 +1,7 @@
+h3{
+  font-size: 20px;
+}
+
 .signatures-container {
   margin-left: 90px;
   padding: 20px;
@@ -10,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(2, 250px);
   grid-row-gap: 50px;
-   grid-column-gap: 170px;
+  grid-column-gap: 170px;
 }
 
 .subject-card {
@@ -30,8 +34,7 @@
 }
 
 .subject-icon {
-  width: 60px;
-  margin-bottom: 10px;
+  width: 120px;
 }
 
 .subject-card h3 {
