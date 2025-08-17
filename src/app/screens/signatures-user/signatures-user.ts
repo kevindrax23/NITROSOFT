@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 @Component({
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterModule],
   selector: 'app-signatures',
   templateUrl: './signatures-user.html',
   styleUrls: ['./signatures-user.css']

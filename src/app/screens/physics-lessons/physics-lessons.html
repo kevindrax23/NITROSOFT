@@ -1,0 +1,10 @@
+<div class="lessons-container">
+  <div class="lessons-grid">
+    <div *ngFor="let lesson of lessons" class="lesson-card" [style.borderColor]="lesson.color">
+      <div class="lesson-icon" [style.color]="lesson.color">{{ lesson.icon }}</div>
+      <h2>{{ lesson.title }}</h2>
+      <p>{{ lesson.description }}</p>
+      <button class="btn-acceder">Comenzar</button>
+    </div>
+  </div>
+</div>
