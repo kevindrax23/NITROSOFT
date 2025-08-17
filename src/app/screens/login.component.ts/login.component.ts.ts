@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    try {
+
+      try {
       const auth = this.firebase.getAuthInstance();
       const result = await signInWithEmailAndPassword(auth, this.email, this.password);
 
@@ -45,7 +46,9 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('password');
       }
 
-      this.router.navigate(['/dashboard']);
+      setTimeout(() =>{
+      this.router.navigate(['/loading'])
+    },500)
     } catch (err: any) {
       this.error = 'Credenciales incorrectas o no válidas.';
     }

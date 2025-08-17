@@ -1,0 +1,55 @@
+.signatures-container {
+  margin-left: 90px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  grid-row-gap: 50px;
+   grid-column-gap: 170px;
+}
+
+.subject-card {
+  width: 400px;
+  height: 250px;
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0,255,128,0.6);
+}
+
+.subject-icon {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.subject-card h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.subject-btn {
+  background: #00c853;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subject-btn:hover {
+  background: #00e676;
+}
