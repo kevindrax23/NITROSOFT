@@ -12,24 +12,30 @@ import { AuthGuard } from './services/auth.guard';
 import { PhysicsLessonsComponent } from './screens/physics-lessons/physics-lessons.js';
 import { IntroPhysicsComponent } from './screens/intro-physics/intro-physics.js';
 import { EvaluationsComponent } from './screens/evaluations/evaluations.js';
+import { SubjectExamsComponent } from './screens/subject-examsng/subject-examsng.js';
+import { ExamComponent } from './screens/exam/exam.js';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
- { path: 'loading', component: LoadingCharge },
+  { path: 'loading', component: LoadingCharge },
   { path: 'forgot', component: ForgotPasswordComponent },
-  { path: 'dashboard', component: DashboardComponent,
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [AuthGuard],
-    children:[
+    children: [
       { path: '', redirectTo: 'signatures', pathMatch: 'full' }, // por defecto después de login
-      { path: 'signatures', component: SignaturesComponent},
-      { path: 'evaluations', component: EvaluationsComponent},
-      { path: 'signatures/physics/introduction', component: IntroPhysicsComponent },
+      { path: 'signatures', component: SignaturesComponent },
+      { path: 'evaluations',component: EvaluationsComponent,},
+      { path: 'evaluations/:subject', component: SubjectExamsComponent },
+      { path: 'signatures/physics/introduction',component: IntroPhysicsComponent,},
       { path: 'statics', component: StaticsUser },
       { path: 'settings', component: SettingUser },
       { path: 'mail', component: MailUser },
       { path: 'test', component: TestUser },
-      { path:'physics-lessons', component: PhysicsLessonsComponent},
-    ]
-   },
-  { path: '**', redirectTo: '' }
+      { path: 'physics-lessons', component: PhysicsLessonsComponent },
+    ],
+  },
+  { path: 'evaluations/:subject/exam/:topic',component: ExamComponent,},
+  { path: '**', redirectTo: '' },
 ];

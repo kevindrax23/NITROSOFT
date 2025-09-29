@@ -1,0 +1,22 @@
+<div class="exam-container" *ngIf="questions.length > 0">
+  <h2>{{ topic }} - Examen</h2>
+
+  <!-- Cronómetro -->
+  <div class="timer">Tiempo restante: {{ timeLeft | date:'mm:ss' : 'UTC' }}</div>
+
+  <!-- Pregunta actual -->
+  <div class="question-card">
+    <p>{{ questions[currentQuestion].text }}</p>
+    <div *ngFor="let option of questions[currentQuestion].options; let i = index">
+      <input type="radio" [name]="'q'+currentQuestion" (click)="selectAnswer(i)">
+      {{ option }}
+    </div>
+  </div>
+
+  <!-- Navegación -->
+  <button (click)="prevQuestion()" [disabled]="currentQuestion === 0">Anterior</button>
+  <button (click)="nextQuestion()" [disabled]="currentQuestion === questions.length - 1">Siguiente</button>
+
+  <!-- Finalizar -->
+  <button class="finish-btn" (click)="finishExam()">Terminar Evaluación</button>
+</div>

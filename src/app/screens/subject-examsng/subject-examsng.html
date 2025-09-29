@@ -1,0 +1,8 @@
+<h2>Temas de {{ subject | titlecase }}</h2>
+<div class="topics-list">
+  <div *ngFor="let topic of topics" class="topic-card">
+    <p>{{ topic }}</p>
+    <button (click)="startExam(topic)">Iniciar Evaluación</button>
+  </div>
+</div>
+
