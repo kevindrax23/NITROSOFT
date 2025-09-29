@@ -9,6 +9,9 @@ import { MailUser } from './screens/mail-user/mail-user.js';
 import { StaticsUser } from './screens/statics-user/statics-user.js';
 import { TestUser } from './screens/test-user/test-user.js';
 import { AuthGuard } from './services/auth.guard';
+import { PhysicsLessonsComponent } from './screens/physics-lessons/physics-lessons.js';
+import { IntroPhysicsComponent } from './screens/intro-physics/intro-physics.js';
+import { EvaluationsComponent } from './screens/evaluations/evaluations.js';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,11 +21,14 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children:[
       { path: '', redirectTo: 'signatures', pathMatch: 'full' }, // por defecto después de login
-      { path: 'signatures', component: SignaturesComponent },
+      { path: 'signatures', component: SignaturesComponent},
+      { path: 'evaluations', component: EvaluationsComponent},
+      { path: 'signatures/physics/introduction', component: IntroPhysicsComponent },
       { path: 'statics', component: StaticsUser },
       { path: 'settings', component: SettingUser },
       { path: 'mail', component: MailUser },
-      { path: 'test', component: TestUser }
+      { path: 'test', component: TestUser },
+      { path:'physics-lessons', component: PhysicsLessonsComponent},
     ]
    },
   { path: '**', redirectTo: '' }

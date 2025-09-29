@@ -1,0 +1,68 @@
+/* Contenedor principal */
+.evaluations-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Título principal */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3748; /* gris oscuro */
+  text-align: center;
+}
+
+/* Grid de materias */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Card de materia */
+.subject-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Título de cada materia */
+.subject-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #1a202c;
+}
+
+/* Botón principal */
+.btn-primary {
+  background-color: #3b82f6; /* azul estilo app */
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb; /* azul más oscuro */
+  transform: scale(1.05);
+}

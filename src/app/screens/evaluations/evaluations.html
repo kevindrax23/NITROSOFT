@@ -1,0 +1,12 @@
+<div class="evaluations-container">
+  <h1 class="title">Evaluaciones</h1>
+
+  <div class="subjects-grid">
+    <div class="subject-card" *ngFor="let subject of subjects">
+      <h2>{{ subject.title }}</h2>
+      <button class="btn-primary" (click)="goToSubject(subject.route)">
+        Acceder
+      </button>
+    </div>
+  </div>
+</div>

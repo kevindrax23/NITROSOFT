@@ -18,7 +18,7 @@ export class SidebarComponent {
 
   navItems = [
     { label: 'Asignaturas', route: '/dashboard/signatures', icon: 'bi bi-speedometer2' },
-    { label: 'Evaluaciones', route: '/dashboard/test', icon: 'bi bi-card-checklist' },
+    { label: 'Evaluaciones', route: '/dashboard/evaluations', icon: 'bi bi-card-checklist' },
     { label: 'Correo', route: '/dashboard/mail', icon: 'bi bi-envelope-at-fill' },
     { label: 'Configuracion', route: '/dashboard/settings', icon: 'bi bi-gear' },
     { label: 'Estadisticas', route: '/dashboard/statics', icon: 'bi bi-bar-chart-line-fill' }

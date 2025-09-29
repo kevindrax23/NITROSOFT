@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Lesson {
   title: string;
@@ -11,7 +12,7 @@ interface Lesson {
 }
 
 @Component({
-  imports:[CommonModule],
+  imports: [CommonModule, RouterLink],
   selector: 'app-physics-lessons',
   standalone: true,
   templateUrl: './physics-lessons.html',
